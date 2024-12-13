@@ -1,4 +1,11 @@
 [run]
 omit =
     manage.py
-    **/tests.py
+    **/tests/**
+    **/migrations/**
+    setup/settings.py
+    setup/urls.py
+    setup/__init__.py
+    core/__init__.py
+    core/admin.py
+    core/apps.py
