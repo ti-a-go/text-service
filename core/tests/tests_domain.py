@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from core.domain import Text
 from core.models import TextModel
+from core.tests.utils import create_test_text
 
 
 class TextTests(TestCase):
@@ -70,3 +71,25 @@ class TextTests(TestCase):
 
         # Then
         self.assertIsInstance(model, TextModel)
+
+    def test_text_from_model_should_return_domain_model(self):
+        # Given
+        data = {
+            "id": 1,
+            "title": "test title",
+            "author": "test author",
+            "text": "test text"
+        }
+        
+        model = TextModel(
+            id=data["id"],
+            title=data["title"],
+            author=data["author"],
+            text=data["text"],
+        )
+
+        # When
+        text = Text.from_model(model)
+
+        # Then
+        self.assertDictEqual(data, text.__dict__)
