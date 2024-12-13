@@ -14,10 +14,7 @@ class CreateTextRequest:
         self._request = request
 
     def is_valid(self) -> bool:
-
-        data = self._request.data
-
-        self._serializer = self._serializer_class(data=data)
+        self._serializer = self._serializer_class(data=self._request.data)
 
         return self._serializer.is_valid()
 

@@ -34,3 +34,6 @@ class Text:
 
     def to_model(self):
         return TextModel(title=self.title, author=self.author, text=self.text)
+    
+    def __str__(self):
+        return f"Text '{self.title}' by {self.author}."

@@ -17,13 +17,13 @@ class TextRepository:
 
         except Exception as e:
             logger.error(
-                f"Error when trying to create a 'Text' {text}. Exception: {str(e)}"
+                f"Error when trying to create a text: {text}. Exception: {str(e)}"
             )
 
             return None
 
         text.id = text_model.id
 
-        logger.info(f"'Text' created: {text}")
+        logger.info(f"Text created: {text}")
 
         return text

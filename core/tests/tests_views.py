@@ -69,5 +69,6 @@ class CreateTextViewTests(TestCase):
         response_body = json.loads(response.content.decode())
 
         expected_response_body = data
+        expected_response_body["id"] = 1
 
         self.assertDictEqual(response_body, expected_response_body)

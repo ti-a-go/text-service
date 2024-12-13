@@ -10,7 +10,7 @@ class CreateTextResponseTests(TestCase):
     
     def test_response_should_have_body_when_result_has_text(self):
         # Given
-        text = create_test_text()
+        text = create_test_text(id=1)
         result = CreateTextResult(text)
 
         # When
@@ -18,6 +18,7 @@ class CreateTextResponseTests(TestCase):
 
         # Then
         self.assertIsInstance(response.body, dict)
+        self.assertEqual(response.body, text.__dict__)
         self.assertEqual(response.status, status.HTTP_201_CREATED)
     
     def test_response_should_not_have_body_when_result_does_have_not_text(self):
