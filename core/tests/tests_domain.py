@@ -93,3 +93,4 @@ class TextTests(TestCase):
 
         # Then
         self.assertDictEqual(data, text.__dict__)
+        self.assertIsInstance(text, Text)
