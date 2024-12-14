@@ -23,6 +23,5 @@ class ListTextsUseCase:
 
         if texts is None:
             return ListTextsResult()
-        
+
         return ListTextsResult(texts)
-            

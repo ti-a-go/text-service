@@ -78,9 +78,9 @@ class TextTests(TestCase):
             "id": 1,
             "title": "test title",
             "author": "test author",
-            "text": "test text"
+            "text": "test text",
         }
-        
+
         model = TextModel(
             id=data["id"],
             title=data["title"],

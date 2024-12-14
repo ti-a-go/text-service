@@ -25,13 +25,13 @@ class CreateTextResponse:
             return status.HTTP_500_INTERNAL_SERVER_ERROR
 
         return status.HTTP_201_CREATED
-    
+
     @property
     def have_error(self):
         if self._result.text is None:
             return True
         return False
-    
+
 
 class ListTextsResponse:
     _serializer_class = ListTextsModelSerializer
@@ -45,7 +45,7 @@ class ListTextsResponse:
             return {"Error": "contanct the server maintainers."}
 
         return self._serializer_class(self._result.texts, many=True).data
-    
+
     @property
     def status(self):
         if self.have_error:

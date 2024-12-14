@@ -57,6 +57,5 @@ class ListCreateTextView(APIView):
             logger.error("Failed to list texts.")
 
             return Response(response.body, response.status)
-        
+
         return Response(response.body, response.status)
-        

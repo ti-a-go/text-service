@@ -33,11 +33,11 @@ class TextRepository:
 
     def list_texts(self) -> Optional[list[Text]]:
         try:
-            query_set =  TextModel.objects.all()
-        
+            query_set = TextModel.objects.all()
+
         except Exception as e:
             logger.error("Exception raised while trying to list 'Texts'")
 
             return None
-        
+
         return [Text.from_model(text) for text in query_set]
