@@ -14,6 +14,18 @@
             "django": true,
             "autoStartBrowser": false,
             "program": "${workspaceFolder}/manage.py"
+        },
+        {
+            "name": "Test Django",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "test",
+                "${workspaceFolder}/core/tests/"
+            ],
+            "django": true
         }
     ]
 }

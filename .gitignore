@@ -63,3 +63,9 @@ drf_example
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+
+
+
+**/migrations/** 
+db.sqlite3
