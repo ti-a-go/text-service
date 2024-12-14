@@ -42,6 +42,6 @@ class ListCreateTextView(APIView):
                 f"Error while trying to create 'Text': {create_text_request.text_to_be_created}"
             )
 
-            return Response(response.body)
+            return Response(response.body, response.status)
 
         return Response(response.body, response.status)

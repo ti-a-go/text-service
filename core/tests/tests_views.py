@@ -3,6 +3,7 @@ from unittest.mock import patch
 
 from django.test import TestCase
 from rest_framework.test import APIClient
+from rest_framework import status
 
 from core.models import TextModel
 
@@ -32,6 +33,7 @@ class CreateTextViewTests(TestCase):
         }
 
         self.assertDictEqual(response_body, expected_response_body)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         
     def test_should_not_create_text_when_database_raises_exception(self):
         with patch.object(TextModel, "save") as mock_method:
@@ -53,6 +55,8 @@ class CreateTextViewTests(TestCase):
             expected_response_body = {"Error": "contanct the server maintainers."}
 
             self.assertDictEqual(response_body, expected_response_body)
+            self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
     def test_should_create_text(self):
         # Given
@@ -72,3 +76,4 @@ class CreateTextViewTests(TestCase):
         expected_response_body["id"] = 1
 
         self.assertDictEqual(response_body, expected_response_body)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
