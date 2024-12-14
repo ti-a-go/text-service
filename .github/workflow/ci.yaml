@@ -2,15 +2,15 @@ name: continuos-integration
 
 on:
   push:
-    branch: [ main ]
+    branch: [ main, dev ]
   pull_request:
-    branch: [ main ]
+    branch: [ main, dev ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    environment: test
+    environment: testing
 
     steps:
       - uses: actions/checkout@v3
@@ -32,4 +32,4 @@ jobs:
           DJANGO_SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           coverage run manage.py test
-          coverage report
+          coverage report -m
