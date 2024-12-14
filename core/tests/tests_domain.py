@@ -2,7 +2,6 @@ from django.test import TestCase
 
 from core.domain import Text
 from core.models import TextModel
-from core.tests.utils import create_test_text
 
 
 class TextTests(TestCase):
@@ -78,9 +77,9 @@ class TextTests(TestCase):
             "id": 1,
             "title": "test title",
             "author": "test author",
-            "text": "test text"
+            "text": "test text",
         }
-        
+
         model = TextModel(
             id=data["id"],
             title=data["title"],

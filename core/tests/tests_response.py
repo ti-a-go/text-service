@@ -7,7 +7,7 @@ from core.tests.utils import create_test_text
 
 
 class CreateTextResponseTests(TestCase):
-    
+
     def test_response_should_have_body_when_result_has_text(self):
         # Given
         text = create_test_text(id=1)
@@ -20,7 +20,7 @@ class CreateTextResponseTests(TestCase):
         self.assertIsInstance(response.body, dict)
         self.assertEqual(response.body, text.__dict__)
         self.assertEqual(response.status, status.HTTP_201_CREATED)
-    
+
     def test_response_should_have_error_body_when_result_does_not_have_text(self):
         # Given
         result = CreateTextResult()
@@ -36,7 +36,7 @@ class CreateTextResponseTests(TestCase):
 
 
 class ListTextResponseTests(TestCase):
-    
+
     def test_response_should_have_body_when_result_has_texts(self):
         # Given
         text_count = 3
@@ -55,7 +55,7 @@ class ListTextResponseTests(TestCase):
         self.assertEqual(len(response.body), text_count)
         self.assertIsInstance(response.body, list)
         self.assertEqual(response.status, status.HTTP_200_OK)
-    
+
     def test_response_should_have_error_body_when_result_does_not_have_text(self):
         # Given
         result = ListTextsResult()
@@ -68,4 +68,3 @@ class ListTextResponseTests(TestCase):
 
         self.assertDictEqual(response.body, expected_response_body)
         self.assertEqual(response.status, status.HTTP_500_INTERNAL_SERVER_ERROR)
-
