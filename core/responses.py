@@ -1,9 +1,8 @@
 from rest_framework import status
 
-from core.results import CreateTextResult
 from core.serializers import CreatedTextModelSerializer
 from core.results import CreateTextResult, ListTextsResult
-from core.serializers import CreateTextModelSerializer, ListTextsModelSerializer
+from core.serializers import ListTextsModelSerializer
 
 
 class CreateTextResponse:

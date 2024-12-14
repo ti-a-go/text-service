@@ -2,7 +2,6 @@ from django.test import TestCase
 
 from core.domain import Text
 from core.models import TextModel
-from core.tests.utils import create_test_text
 
 
 class TextTests(TestCase):

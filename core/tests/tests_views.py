@@ -4,7 +4,6 @@ from unittest.mock import patch
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
-from rest_framework import status
 
 from core.models import TextModel
 
@@ -143,18 +142,6 @@ class UpdateTextViewTests(TestCase):
         pass
 
     def test_should_update_text_when_text_is_not_found(self):
-        pass
-
-
-class DeleteTextViewTests(TestCase):
-
-    def test_should_delete_text(self):
-        pass
-
-    def test_should_not_delete_text_when_database_raises_exception(self):
-        pass
-
-    def test_should_not_delete_text_when_text_is_not_found(self):
         pass
 
 

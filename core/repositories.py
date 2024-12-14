@@ -1,8 +1,6 @@
 import logging
 from typing import Optional
 
-from django.db.models.query import QuerySet
-
 from core.domain import Text
 from core.models import TextModel
 
@@ -36,7 +34,7 @@ class TextRepository:
             query_set = TextModel.objects.all()
 
         except Exception as e:
-            logger.error("Exception raised while trying to list 'Texts'")
+            logger.error(f"Exception raised while trying to list texts. Exception: {str(e)}")
 
             return None
 
