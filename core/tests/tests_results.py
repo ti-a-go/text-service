@@ -17,7 +17,7 @@ class CreateTextResultTests(TestCase):
         # Then
         self.assertIsInstance(result.text, Text)
         self.assertIs(text, result.text)
-    
+
     def test_result_should_not_have_text(self):
         # When
         result = CreateTextResult()

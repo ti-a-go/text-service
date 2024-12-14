@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from core.requests import CreateTextRequest
-from core.usecases import CreateTextUseCase
-from core.responses import CreateTextResponse
+from core.usecases import CreateTextUseCase, ListTextsUseCase
+from core.responses import CreateTextResponse, ListTextsResponse
 
 
 logger = logging.getLogger(__name__)
@@ -41,6 +41,20 @@ class ListCreateTextView(APIView):
             logger.error(
                 f"Error while trying to create 'Text': {create_text_request.text_to_be_created}"
             )
+
+            return Response(response.body, response.status)
+
+        return Response(response.body, response.status)
+
+    def get(self, _: Request) -> Response:
+        usecase = ListTextsUseCase()
+
+        result = usecase.run()
+
+        response = ListTextsResponse(result)
+
+        if response.have_error:
+            logger.error("Failed to list texts.")
 
             return Response(response.body, response.status)
 

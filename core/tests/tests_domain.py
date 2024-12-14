@@ -70,3 +70,26 @@ class TextTests(TestCase):
 
         # Then
         self.assertIsInstance(model, TextModel)
+
+    def test_text_from_model_should_return_domain_model(self):
+        # Given
+        data = {
+            "id": 1,
+            "title": "test title",
+            "author": "test author",
+            "text": "test text",
+        }
+
+        model = TextModel(
+            id=data["id"],
+            title=data["title"],
+            author=data["author"],
+            text=data["text"],
+        )
+
+        # When
+        text = Text.from_model(model)
+
+        # Then
+        self.assertDictEqual(data, text.__dict__)
+        self.assertIsInstance(text, Text)

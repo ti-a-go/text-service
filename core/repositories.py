@@ -1,7 +1,8 @@
 import logging
+from typing import Optional
 
-from core.models import TextModel
 from core.domain import Text
+from core.models import TextModel
 
 
 logger = logging.getLogger(__name__)
@@ -9,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class TextRepository:
 
-    def create_text(self, text: Text) -> Text:
+    def create_text(self, text: Text) -> Optional[Text]:
         text_model = text.to_model()
 
         try:
@@ -27,3 +28,14 @@ class TextRepository:
         logger.info(f"Text created: {text}")
 
         return text
+
+    def list_texts(self) -> Optional[list[Text]]:
+        try:
+            query_set = TextModel.objects.all()
+
+        except Exception as e:
+            logger.error(f"Exception raised while trying to list texts. Exception: {str(e)}")
+
+            return None
+
+        return [Text.from_model(text) for text in query_set]
