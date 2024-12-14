@@ -78,3 +78,4 @@ class TextRepositoryTests(TestCase):
 
             # Then
             self.assertIsNone(texts)
+            mock_method.assert_called_once_with()

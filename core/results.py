@@ -1,7 +1,5 @@
 from typing import Optional
 
-from django.db.models.query import QuerySet
-
 from core.domain import Text
 
 
@@ -13,5 +11,5 @@ class CreateTextResult:
 
 class ListTextsResult:
 
-    def __init__(self, texts: Optional[QuerySet] = None):
+    def __init__(self, texts: Optional[Text] = None):
         self.texts = texts

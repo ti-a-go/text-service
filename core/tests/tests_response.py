@@ -21,7 +21,7 @@ class CreateTextResponseTests(TestCase):
         self.assertEqual(response.body, text.__dict__)
         self.assertEqual(response.status, status.HTTP_201_CREATED)
     
-    def test_response_should_have_error_body_when_result_does_have_not_text(self):
+    def test_response_should_have_error_body_when_result_does_not_have_text(self):
         # Given
         result = CreateTextResult()
 
@@ -56,7 +56,7 @@ class ListTextResponseTests(TestCase):
         self.assertIsInstance(response.body, list)
         self.assertEqual(response.status, status.HTTP_200_OK)
     
-    def test_response_should_have_error_body_when_result_does_have_not_text(self):
+    def test_response_should_have_error_body_when_result_does_not_have_text(self):
         # Given
         result = ListTextsResult()
 
